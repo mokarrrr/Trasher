@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+    <item android:duration="100"
+    android:drawable="@drawable/gradient_background"/>
+    <item android:duration="2500"
+        android:drawable="@drawable/gradient_background_center"/>
+    <item android:duration="2500"
+        android:drawable="@drawable/background_color"/>
+    <item android:duration="2500"
+        android:drawable="@drawable/main_background"/>
+</animation-list>

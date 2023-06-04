@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Trasher</string>
+    <string name="IDnumber">Номер удостоверения</string>
+    <string name="Password">Пароль</string>
+    <string name="Authorization">Авторизация</string>
+    <string name="Welcome">Здравствуйте!</string>
+    <string name="list">Список дел</string>
+    <string name="about">Информацию по делу</string>
+    <string name="sketch">Составление фоторобота</string>
+    <string name="skincolor">Цвет кожи</string>
+    <string name="eyecolor">Цвет глаз</string>
+</resources>

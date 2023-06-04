@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.trasher">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Trasher"
+        android:networkSecurityConfig="@xml/network_security_config"
+        >
+        <activity
+            android:name=".Photorobot"
+            android:exported="false" />
+        <activity
+            android:name=".NewCaseWindow"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NotesWindow"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EvidenceWindow"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SketchWindow"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CaseInfoWindow"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CaseListWindow"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WelcomeScreen"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LogInScreen"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
