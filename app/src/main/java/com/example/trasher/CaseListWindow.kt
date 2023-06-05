@@ -34,6 +34,12 @@ class CaseListWindow : AppCompatActivity(), CaseAdapter.Listener {
         binding.rcView.layoutManager = GridLayoutManager(this@CaseListWindow, 2)
         binding.rcView.adapter = adapter
         getCases()
+        binding.NewCaseLayout.setOnClickListener {
+            val intent = Intent(this, NewCaseWindow::class.java)
+            intent.putExtra("user", user)
+            startActivity(intent)
+        }
+
     }
 
 //    private fun init(){

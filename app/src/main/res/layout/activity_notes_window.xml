@@ -41,10 +41,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/edit_text_background"
-            android:clickable="false"
+            android:clickable="true"
             android:editable="false"
             android:gravity="start"
             android:hint="\n  Введите текст"
+            android:inputType="text"
             android:padding="5dp"
             android:singleLine="false" />
 

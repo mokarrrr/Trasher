@@ -1,20 +1,33 @@
 package com.example.trasher
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.EditText
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.trasher.API.Connector
-import com.example.trasher.databinding.ActivityCaseListWindowBinding
 import com.example.trasher.databinding.ActivityNewCaseWindowBinding
 
 class NewCaseWindow : AppCompatActivity() {
 
     lateinit var binding: ActivityNewCaseWindowBinding
+    private val viewModel: UserViewModel by viewModels()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_case_window)
         binding = ActivityNewCaseWindowBinding.inflate(layoutInflater)
+
+
+//        binding.apply {
+//
+//            imageView3.setOnClickListener {
+//                Log.d("Кнопка","Нажата")
+//                Connector().add(user!!.id,editTextSuspectThirdname.text.toString(),editTextSuspectDiscription.text.toString())
+//            }
+//        }
 
 
     }
@@ -36,16 +49,22 @@ class NewCaseWindow : AppCompatActivity() {
         }
 
     }*/
-   /* fun save (view:android.view.View){
+    fun save (view:android.view.View){
         Thread(Runnable {
-            val case: Case = Case()
-            Connector().add(title , Case)
-        })
+            val settings = getSharedPreferences("User", MODE_PRIVATE)
+            val id: String = settings.getString("User", "не определено")!!
+            binding = ActivityNewCaseWindowBinding.inflate(layoutInflater)
+            val t = findViewById<EditText>(R.id.editTextSuspectThirdname)
+            val d = findViewById<EditText>(R.id.editTextSuspectDiscription)
+//            val title = binding.editTextSuspectThirdname.text.toString()
+//            val description = binding.editTextSuspectDiscription.text.toString()
+            val title = t.text.toString()
+            val description = d.text.toString()
+            Log.d("Поля",title + description)
 
-        val intent = Intent(this,CaseListWindow::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+            Connector().add(id.toInt(),title,description)
+        }).start()
 
-        startActivity(intent)
 
-    }*/
+    }
 }

@@ -1,16 +1,18 @@
 package com.example.trasher
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.EditText
 import android.content.Intent
+import android.content.SharedPreferences
+import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.trasher.API.Connector
 
 
@@ -23,10 +25,12 @@ class LogInScreen : AppCompatActivity() {
     lateinit var Pas: EditText
     lateinit var LogError: TextView
     lateinit var PasError: TextView
+    private val viewModel: UserViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in_screen)
+
 
         val anim: Animation = AnimationUtils.loadAnimation(this@LogInScreen, R.anim.fade_in)
         Id = findViewById(R.id.editTextID)
@@ -41,7 +45,7 @@ class LogInScreen : AppCompatActivity() {
         LogInButton.startAnimation(anim)
     }
 
-    fun sign(view: android.view.View) {
+    fun sign(view: View) {
         var intId = Integer.parseInt(Id.getText().toString())
         var intPas = Integer.parseInt(Pas.getText().toString())
         LogError.visibility = View.GONE
@@ -51,7 +55,13 @@ class LogInScreen : AppCompatActivity() {
         Thread(Runnable {
             try {
                 user = Connector().auth(intId, intPas)
+                val settings = getSharedPreferences("User", MODE_PRIVATE)
+                val prefEditor: SharedPreferences.Editor = settings.edit()
+                prefEditor.putString("User", user!!.id.toString())
+                prefEditor.apply()
+
                 Log.d("hi", user.toString())
+//                viewModel.user.value= user
 
                 if (user == null) {
                     PasError.visibility = View.VISIBLE
@@ -59,6 +69,7 @@ class LogInScreen : AppCompatActivity() {
                     val intent = Intent(this, WelcomeScreen::class.java)
                     intent.putExtra("user", user)
                     startActivity(intent)
+
                     finish()
                 }
             } catch (e: Exception) {
