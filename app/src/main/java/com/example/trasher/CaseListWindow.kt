@@ -89,6 +89,10 @@ class CaseListWindow : AppCompatActivity(), CaseAdapter.Listener {
         startActivity(Intent(this@CaseListWindow, LogInScreen::class.java))
         finish()
     }
+    fun goshawty (view:android.view.View){
+        val intent = Intent(this,NewCaseWindow::class.java)
+        startActivity(intent)
+    }
 
     fun searchButton(view: android.view.View) {
         binding.apply {

@@ -9,6 +9,7 @@
 
     <ImageButton
         android:id="@+id/imageButtonDeleteCase"
+
         android:layout_width="80dp"
         android:layout_height="60dp"
         android:layout_marginTop="55dp"
@@ -185,19 +186,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="100dp"
-        android:contentDescription="CaseID"
-        android:dropDownWidth="match_parent"
-        android:spinnerMode="dropdown"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
 
     <TextView
         android:id="@+id/textView10"
@@ -220,7 +209,7 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="20dp"
         android:textColor="@color/black"
-        android:padding="10dp"
+        android:padding="1dp"
         android:background="@drawable/edit_text_background"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -235,5 +224,36 @@
         android:editable="false">
 
     </EditText>
+
+    <TextView
+        android:id="@+id/numberofcase"
+        android:layout_width="80dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="-100dp"
+        android:layout_marginTop="5dp"
+        android:hint="Idcase"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:scaleType="fitCenter"
+        android:onClick="goshawty"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="240dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonDeleteCase"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

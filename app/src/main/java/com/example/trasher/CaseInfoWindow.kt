@@ -1,3 +1,5 @@
+
+
 package com.example.trasher
 
 import android.annotation.SuppressLint
@@ -7,6 +9,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 
 lateinit var thisCase: Case
 
@@ -18,38 +21,41 @@ class CaseInfoWindow : AppCompatActivity() {
 
         thisCase = intent.getParcelableExtra("case")!!
        var caseInfo: EditText = findViewById(R.id.editTextCaseInfo)
-       /* caseInfo.setText("Имя подозреваемого: ${thisCase.SuspectName}\n" +
-                "Фамилия подозреваемого: ${thisCase.SuspectSurname}\n" +
-                "Отчество подозреваемого: ${thisCase.SuspectThirdname}\n" +
-                "Примерный возраст подозреваемого: ${thisCase.Age.toString()}\n" +
-                "Описание дела: ${thisCase.CaseInfo}")*/
+        var Idcase: TextView = findViewById(R.id.numberofcase)
+        caseInfo.setText("Название дела: ${thisCase.title}\n" +
+                "Описание: ${thisCase.description}\n")
+        Idcase.setText("${thisCase.id}")
 
 
     }
     fun sketch (view:android.view.View){
         val intent = Intent(this,SketchWindow::class.java)
         startActivity(intent)
-        finish()
+
     }
     fun photorobot(view:android.view.View){
         val intent = Intent(this,Photorobot::class.java)
         startActivity(intent)
-        finish()
+
     }
     fun evidence (view:android.view.View){
         val intent = Intent(this,EvidenceWindow::class.java)
         startActivity(intent)
-        finish()
+
     }
     fun notes (view:android.view.View){
+
         val intent = Intent(this,NotesWindow::class.java)
+        intent.putExtra("case",thisCase)
         startActivity(intent)
-        finish()
+
     }
-    fun back (view:android.view.View){
-        val intent = Intent(this,CaseListWindow::class.java)
-        startActivity(intent)
-        finish()
+     fun  goshawty(view: View){
+        val newActIntent = Intent(this,CaseListWindow::class.java)
+        newActIntent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+        startActivity(newActIntent)
+
     }
 
 }
+

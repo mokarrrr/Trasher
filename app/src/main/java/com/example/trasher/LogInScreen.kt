@@ -47,23 +47,21 @@ class LogInScreen : AppCompatActivity() {
         LogError.visibility = View.GONE
         PasError.visibility = View.GONE
 
-        var user:User?= null
+        var user: User? = null
         Thread(Runnable {
-           try {
-               user = Connector().auth(intId,intPas)
-               Log.d("hi",user.toString())
+            try {
+                user = Connector().auth(intId, intPas)
+                Log.d("hi", user.toString())
 
-               if(user == null) {
-                   PasError.visibility = View.VISIBLE
-               }
-               else {
-                   val intent = Intent(this, WelcomeScreen::class.java)
-                   intent.putExtra("user", user)
-                   startActivity(intent)
-                   finish()
-               }
-           }
-            catch (e:Exception){
+                if (user == null) {
+                    PasError.visibility = View.VISIBLE
+                } else {
+                    val intent = Intent(this, WelcomeScreen::class.java)
+                    intent.putExtra("user", user)
+                    startActivity(intent)
+                    finish()
+                }
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
 
@@ -77,9 +75,9 @@ class LogInScreen : AppCompatActivity() {
             intent.putExtra("user", user)
             startActivity(intent)
             finish()
-        }*/
-    }
-   /* fun isExist(id: Int): Boolean{
+        }
+    }*/
+        /* fun isExist(id: Int): Boolean{
      var res = false
      for (user in users){
          if(user.ID == id){
@@ -109,6 +107,7 @@ class LogInScreen : AppCompatActivity() {
         }
         return res
     }*/
+    }
 }
 
 
